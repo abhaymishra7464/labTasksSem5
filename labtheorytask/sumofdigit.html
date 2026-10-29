@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let num = Number(prompt("Enter a number:"));
+        let original = Math.abs(num);
+        let reverse = 0;
+        let sum = 0;
+
+        while (original > 0) {
+            let digit = original % 10;
+            sum = sum + digit;
+
+            original = Math.floor(original / 10);
+        }
+
+        document.write("Sum of Digits: " + sum);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        let num = 90187654;
+        let count = 0;
+        let even = 0;
+        let odd = 0;
+
+        while (num > 0) {
+            let digit = num % 10;
+
+            count++;
+
+            if (digit % 2 === 0) {
+                even++;
+            } else {
+                odd++;
+            }
+
+            num = Math.floor(num / 10);
+        }
+
+        console.log("Total Digits:", count);
+        console.log("Even Digits:", even);
+        console.log("Odd Digits:", odd);
+    </script>
+</body>
+</html>

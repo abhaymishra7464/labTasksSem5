@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        let marks = [78, 85, 92, 67, 88];
+
+        let total = 0;
+        let highest = marks[0];
+        let lowest = marks[0];
+        let count = 0;
+
+        for (let mark of marks) {
+            total += mark;
+            count++;
+
+            if (mark > highest) {
+                highest = mark;
+            }
+
+            if (mark < lowest) {
+                lowest = mark;
+            }
+        }
+
+        console.log("Total Marks:", total);
+        console.log("Number of Students:", count);
+        console.log("Highest Marks:", highest);
+        console.log("Lowest Marks:", lowest);
+        console.log("Average Marks:", total / count);
+    </script>
+</body>
+</html>
