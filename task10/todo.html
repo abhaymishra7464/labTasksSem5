@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Todo List</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        #taskContainer {
+            margin-top: 50px;
+        }
+
+        .task {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid gray;
+            border-radius: 8px;
+            width: fit-content;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        button {
+            padding: 6px 10px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>Advanced Todo List</h1>
+
+    <input type="text" id="taskInput" placeholder="Enter your task">
+
+    <button id="addBtn">Add Task</button>
+
+    <div id="taskContainer"></div>
+
+
+    <script>
+
+        const input = document.getElementById("taskInput");
+        const addBtn = document.getElementById("addBtn");
+        const container = document.getElementById("taskContainer");
+
+        function addTask() {
+
+            const taskText = input.value.trim();
+
+            if (taskText === "") {
+                alert("Please enter a task");
+                return;
+            }
+
+            const taskDiv = document.createElement("div");
+            taskDiv.classList.add("task");
+
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+
+            const task = document.createElement("span");
+            task.innerText = taskText;
+
+            const upBtn = document.createElement("button");
+            upBtn.innerText = "Up";
+
+            const downBtn = document.createElement("button");
+            downBtn.innerText = "Down";
+
+            const deleteBtn = document.createElement("button");
+            deleteBtn.innerText = "Delete";
+
+
+            checkbox.addEventListener("change", function() {
+
+                if (checkbox.checked) {
+                    task.classList.add("completed");
+                } else {
+                    task.classList.remove("completed");
+                }
+
+            });
+
+
+       
+            upBtn.addEventListener("click", function() {
+
+                const previous = taskDiv.previousElementSibling;
+
+                if (previous) {
+                    container.insertBefore(taskDiv, previous);
+                }
+
+            });
+
+
+            downBtn.addEventListener("click", function() {
+
+                const next = taskDiv.nextElementSibling;
+
+                if (next) {
+                    container.insertBefore(next, taskDiv);
+                }
+
+            });
+
+
+            deleteBtn.addEventListener("click", function() {
+                taskDiv.remove();
+            });
+
+
+            taskDiv.append(
+                checkbox,
+                task,
+                upBtn,
+                downBtn,
+                deleteBtn
+            );
+
+            container.appendChild(taskDiv);
+
+            input.value = "";
+
+        }
+
+
+        addBtn.addEventListener("click", addTask);
+
+    </script>
+
+</body>
+</html>
